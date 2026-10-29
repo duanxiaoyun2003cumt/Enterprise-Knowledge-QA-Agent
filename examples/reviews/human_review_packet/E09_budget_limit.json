@@ -1,0 +1,133 @@
+{
+  "packet_version": 1,
+  "case_id": "E09",
+  "run_id": "run-20261029T103138620631Z-2ed219c1",
+  "mode": "fake",
+  "batch": "phase6-fake-evidence",
+  "input": "报销期限是多久？",
+  "history": null,
+  "expected_behavior": "模型持续检索时，工具调用达到上限立即停止，返回 incomplete，且不再发起模型/工具请求。",
+  "documents": [
+    {
+      "doc_id": "D01",
+      "title": "费用报销管理制度",
+      "version_date": "2025-01-15",
+      "content": "费用发生后30日内提交报销申请。"
+    },
+    {
+      "doc_id": "D02",
+      "title": "财务报销操作细则",
+      "version_date": "2025-04-01",
+      "content": "费用发生后15日内提交报销申请。"
+    },
+    {
+      "doc_id": "D03",
+      "title": "差旅住宿FAQ",
+      "version_date": "2025-03-01",
+      "content": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。"
+    },
+    {
+      "doc_id": "D04",
+      "title": "产品X FAQ",
+      "version_date": "2025-02-01",
+      "content": "产品X企业版支持SAML 2.0单点登录。"
+    }
+  ],
+  "final_output": {
+    "status": "incomplete",
+    "answer": "已达到最大工具调用次数，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "需要进一步检索或核实资料",
+      "工具调用预算已用尽"
+    ]
+  },
+  "trace_path": "examples\\traces\\fake\\run-20261029T103138620631Z-2ed219c1.json",
+  "trace": {
+    "schema_version": 1,
+    "run_id": "run-20261029T103138620631Z-2ed219c1",
+    "mode": "fake",
+    "model": "fake-evaluation",
+    "question": "报销期限是多久？",
+    "history_messages_included": 0,
+    "max_steps": 6,
+    "max_tool_calls": 2,
+    "steps_used": 2,
+    "tool_calls_made": 2,
+    "format_repairs": 0,
+    "final_validation_retries": 0,
+    "steps": [
+      {
+        "run_id": "run-20261029T103138620631Z-2ed219c1",
+        "step": 1,
+        "model": "fake-evaluation",
+        "action_name": "search_documents",
+        "action_params": {
+          "query": "报销期限",
+          "top_k": 3
+        },
+        "action_validation": "valid",
+        "tool_name": "search_documents",
+        "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+        "tool_error_type": null,
+        "observation_ok": true,
+        "validation_errors": [],
+        "repair_kind": null,
+        "next_action": "search_documents",
+        "decision_note": "第一次检索"
+      },
+      {
+        "run_id": "run-20261029T103138620631Z-2ed219c1",
+        "step": 2,
+        "model": "fake-evaluation",
+        "action_name": "search_documents",
+        "action_params": {
+          "query": "报销期限",
+          "top_k": 3
+        },
+        "action_validation": "valid",
+        "tool_name": "search_documents",
+        "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+        "tool_error_type": null,
+        "observation_ok": true,
+        "validation_errors": [],
+        "repair_kind": null,
+        "next_action": "tool_limit",
+        "decision_note": "重复检索"
+      }
+    ],
+    "final_result": {
+      "status": "incomplete",
+      "answer": "已达到最大工具调用次数，任务尚未完成。",
+      "citations": [],
+      "gaps": [
+        "需要进一步检索或核实资料",
+        "工具调用预算已用尽"
+      ]
+    },
+    "stop_reason": "tool_limit"
+  },
+  "runtime_config": {
+    "model": "fake-evaluation",
+    "budget": {
+      "max_steps": 6,
+      "max_tool_calls": 2,
+      "max_format_repairs": 2,
+      "max_final_validation_retries": 2,
+      "profile": "baseline"
+    }
+  },
+  "review_status": "pending_human_review",
+  "review_checklist": "../human_review_checklist.md",
+  "related_runs": [
+    {
+      "run_id": "run-20261029T103138620631Z-2ed219c1",
+      "repeat_index": null,
+      "actual_status": "incomplete",
+      "tool_calls": 2,
+      "steps_used": 2,
+      "stop_reason": "tool_limit",
+      "trace_path": "examples\\traces\\fake\\run-20261029T103138620631Z-2ed219c1.json"
+    }
+  ]
+}

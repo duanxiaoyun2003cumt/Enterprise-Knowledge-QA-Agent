@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T102750078227Z-e0a8ead5",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "公司年会在哪里举办？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 3,
+  "tool_calls_made": 2,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T102750078227Z-e0a8ead5",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "公司年会 举办 地点",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "查找与公司年会举办地点直接相关的制度或通知。"
+    },
+    {
+      "run_id": "run-20261029T102750078227Z-e0a8ead5",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "年会 场地 安排 通知",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "首次检索无候选，换用同义表达再检一次。"
+    },
+    {
+      "run_id": "run-20261029T102750078227Z-e0a8ead5",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "知识库中未找到关于公司年会举办地点的资料，无法给出确切答案。",
+        "citations": [],
+        "gaps": [
+          "缺少年会举办地点的通知或制度文档"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "两次不同表达检索均无候选，按预算结束并说明证据不足。"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "知识库中未找到关于公司年会举办地点的资料，无法给出确切答案。",
+    "citations": [],
+    "gaps": [
+      "缺少年会举办地点的通知或制度文档"
+    ]
+  },
+  "stop_reason": "finish"
+}

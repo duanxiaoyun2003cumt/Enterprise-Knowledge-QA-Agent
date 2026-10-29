@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095850225624Z-66e0ce26",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "差旅住宿费报销需要哪些材料？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 2,
+  "tool_calls_made": 1,
+  "steps": [
+    {
+      "run_id": "run-20261029T095850225624Z-66e0ce26",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D01"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D01（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "读取 D01"
+    },
+    {
+      "run_id": "run-20261029T095850225624Z-66e0ce26",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "answered",
+        "answer": "差旅住宿报销需要提供有效发票。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "费用发生后30日内提交报销申请。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": []
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "引用真实字符串，但其语义不支持材料结论"
+    }
+  ],
+  "final_result": {
+    "status": "answered",
+    "answer": "差旅住宿报销需要提供有效发票。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "quote": "费用发生后30日内提交报销申请。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": []
+  },
+  "stop_reason": "finish"
+}

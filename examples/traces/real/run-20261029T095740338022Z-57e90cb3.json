@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095740338022Z-57e90cb3",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "公司年会在哪里举办？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 4,
+  "tool_calls_made": 3,
+  "steps": [
+    {
+      "run_id": "run-20261029T095740338022Z-57e90cb3",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "公司年会 举办 地点",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "检索知识库中关于公司年会举办地点的相关制度或通知"
+    },
+    {
+      "run_id": "run-20261029T095740338022Z-57e90cb3",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "年会 地点 场地 通知",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "首次检索无结果，改用更宽泛的关键词再检索"
+    },
+    {
+      "run_id": "run-20261029T095740338022Z-57e90cb3",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "公司 年会 安排 会议 活动",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "两次针对性检索均无候选，改用更宽泛的公司活动安排相关关键词检索"
+    },
+    {
+      "run_id": "run-20261029T095740338022Z-57e90cb3",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "知识库中未检索到关于公司年会举办地点的相关文档，无法确认具体地点。",
+        "citations": [],
+        "gaps": [
+          "知识库缺少公司年会安排/场地相关文档"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "三轮不同关键词检索均返回空候选，无文档可读取引用"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "知识库中未检索到关于公司年会举办地点的相关文档，无法确认具体地点。",
+    "citations": [],
+    "gaps": [
+      "知识库缺少公司年会安排/场地相关文档"
+    ]
+  },
+  "stop_reason": "finish"
+}

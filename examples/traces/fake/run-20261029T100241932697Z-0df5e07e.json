@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T100241932697Z-0df5e07e",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "差旅住宿费报销需要哪些材料？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 4,
+  "tool_calls_made": 2,
+  "steps": [
+    {
+      "run_id": "run-20261029T100241932697Z-0df5e07e",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Expecting value（line 1, column 1）"
+      ],
+      "next_action": "search_documents",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T100241932697Z-0df5e07e",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "差旅住宿费报销需要哪些材料",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "修正格式后重新检索"
+    },
+    {
+      "run_id": "run-20261029T100241932697Z-0df5e07e",
+      "step": 3,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "读取候选文档原文"
+    },
+    {
+      "run_id": "run-20261029T100241932697Z-0df5e07e",
+      "step": 4,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "answered",
+        "answer": "差旅住宿报销需要提供有效发票及订单或入住凭证。",
+        "citations": [
+          {
+            "doc_id": "D03",
+            "quote": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": []
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "引用已读原文"
+    }
+  ],
+  "final_result": {
+    "status": "answered",
+    "answer": "差旅住宿报销需要提供有效发票及订单或入住凭证。",
+    "citations": [
+      {
+        "doc_id": "D03",
+        "quote": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": []
+  },
+  "stop_reason": "finish"
+}

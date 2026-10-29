@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T102959934311Z-1a8bc293",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 4,
+  "tool_calls_made": 3,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T102959934311Z-1a8bc293",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限 多久",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "直接检索与报销期限相关的制度文档"
+    },
+    {
+      "run_id": "run-20261029T102959934311Z-1a8bc293",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "费用报销 规定 时限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "首次查询无候选，改用同义表达再检索"
+    },
+    {
+      "run_id": "run-20261029T102959934311Z-1a8bc293",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销 提交 时间 财务 制度",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "两次无候选，最后尝试更宽泛的财务制度表达"
+    },
+    {
+      "run_id": "run-20261029T102959934311Z-1a8bc293",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "当前知识库中未能检索到与报销期限相关的制度文档，因此无法给出准确期限。",
+        "citations": [],
+        "gaps": [
+          "知识库未检索到报销期限/费用报销时限相关文档，缺少可核实的原文依据"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "三次不同关键词检索均无候选，按规则结束为证据不足"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "当前知识库中未能检索到与报销期限相关的制度文档，因此无法给出准确期限。",
+    "citations": [],
+    "gaps": [
+      "知识库未检索到报销期限/费用报销时限相关文档，缺少可核实的原文依据"
+    ]
+  },
+  "stop_reason": "finish"
+}

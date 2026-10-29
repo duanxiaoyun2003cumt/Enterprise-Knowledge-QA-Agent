@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T102855341606Z-b553117e",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 5,
+  "tool_calls_made": 5,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T102855341606Z-b553117e",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "检索知识库中与报销期限相关的制度文档"
+    },
+    {
+      "run_id": "run-20261029T102855341606Z-b553117e",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "费用报销 时限 规定",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "首轮无候选，改用费用报销时限相关表达再检索"
+    },
+    {
+      "run_id": "run-20261029T102855341606Z-b553117e",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "read_document",
+      "decision_note": "两次无候选，尝试更宽泛的关键词以确认知识库是否有报销类文档"
+    },
+    {
+      "run_id": "run-20261029T102855341606Z-b553117e",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "唯一候选文档，读取全文核实是否包含报销期限"
+    },
+    {
+      "run_id": "run-20261029T102855341606Z-b553117e",
+      "step": 5,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "发票 报销 截止 日期",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "tool_limit",
+      "decision_note": "已读文档未含期限，最后再检索截止日期相关表达"
+    }
+  ],
+  "final_result": {
+    "status": "incomplete",
+    "answer": "已达到最大工具调用次数，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "需要进一步检索或核实资料",
+      "工具调用预算已用尽"
+    ]
+  },
+  "stop_reason": "tool_limit"
+}

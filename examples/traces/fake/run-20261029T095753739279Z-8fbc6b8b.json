@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095753739279Z-8fbc6b8b",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 2,
+  "tool_calls_made": 1,
+  "steps": [
+    {
+      "run_id": "run-20261029T095753739279Z-8fbc6b8b",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "search_documents 执行失败：Document data file not found: E:\\段天洋\\小影科技\\examples\\evaluation_data\\missing.json",
+      "tool_error_type": "DocumentDataError",
+      "observation_ok": false,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "尝试检索"
+    },
+    {
+      "run_id": "run-20261029T095753739279Z-8fbc6b8b",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "tool_error",
+        "answer": "知识库数据文件不可用，无法完成检索。",
+        "citations": [],
+        "gaps": [
+          "数据文件缺失或损坏"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "真实数据错误，不能伪装成功"
+    }
+  ],
+  "final_result": {
+    "status": "tool_error",
+    "answer": "知识库数据文件不可用，无法完成检索。",
+    "citations": [],
+    "gaps": [
+      "数据文件缺失或损坏"
+    ]
+  },
+  "stop_reason": "finish"
+}

@@ -1,0 +1,194 @@
+{
+  "packet_version": 1,
+  "case_id": "E11",
+  "run_id": "run-20261029T102657874076Z-5858e2da",
+  "mode": "fake",
+  "batch": "phase6-e11-semantic (FakeLLM)",
+  "input": "差旅住宿费报销需要哪些材料？",
+  "history": null,
+  "expected_behavior": "引用字符串真实但语义不支持答案，自动真实性检查通过，人工语义审查必须判失败。",
+  "documents": [
+    {
+      "doc_id": "D01",
+      "title": "费用报销管理制度",
+      "version_date": "2025-01-15",
+      "content": "费用发生后30日内提交报销申请。"
+    },
+    {
+      "doc_id": "D02",
+      "title": "财务报销操作细则",
+      "version_date": "2025-04-01",
+      "content": "费用发生后15日内提交报销申请。"
+    },
+    {
+      "doc_id": "D03",
+      "title": "差旅住宿FAQ",
+      "version_date": "2025-03-01",
+      "content": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。"
+    },
+    {
+      "doc_id": "D04",
+      "title": "产品X FAQ",
+      "version_date": "2025-02-01",
+      "content": "产品X企业版支持SAML 2.0单点登录。"
+    }
+  ],
+  "final_output": {
+    "status": "answered",
+    "answer": "差旅住宿报销需要提供有效发票。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "quote": "费用发生后30日内提交报销申请。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": []
+  },
+  "trace_path": "examples\\traces\\fake\\run-20261029T102657874076Z-5858e2da.json",
+  "trace": {
+    "schema_version": 1,
+    "run_id": "run-20261029T102657874076Z-5858e2da",
+    "mode": "fake",
+    "model": "fake-evaluation",
+    "question": "差旅住宿费报销需要哪些材料？",
+    "history_messages_included": 0,
+    "max_steps": 6,
+    "max_tool_calls": 5,
+    "steps_used": 2,
+    "tool_calls_made": 1,
+    "format_repairs": 0,
+    "final_validation_retries": 0,
+    "steps": [
+      {
+        "run_id": "run-20261029T102657874076Z-5858e2da",
+        "step": 1,
+        "model": "fake-evaluation",
+        "action_name": "read_document",
+        "action_params": {
+          "doc_id": "D01"
+        },
+        "action_validation": "valid",
+        "tool_name": "read_document",
+        "tool_result_summary": "读取成功：D01（16 字符）",
+        "tool_error_type": null,
+        "observation_ok": true,
+        "validation_errors": [],
+        "repair_kind": null,
+        "next_action": "finish",
+        "decision_note": "读取 D01"
+      },
+      {
+        "run_id": "run-20261029T102657874076Z-5858e2da",
+        "step": 2,
+        "model": "fake-evaluation",
+        "action_name": "finish",
+        "action_params": {
+          "status": "answered",
+          "answer": "差旅住宿报销需要提供有效发票。",
+          "citations": [
+            {
+              "doc_id": "D01",
+              "quote": "费用发生后30日内提交报销申请。",
+              "version": null,
+              "effective_date": null
+            }
+          ],
+          "gaps": []
+        },
+        "action_validation": "valid",
+        "tool_name": null,
+        "tool_result_summary": "最终结果通过校验",
+        "tool_error_type": null,
+        "observation_ok": true,
+        "validation_errors": [],
+        "repair_kind": null,
+        "next_action": "finish",
+        "decision_note": "引用真实字符串，但其语义不支持材料结论"
+      }
+    ],
+    "final_result": {
+      "status": "answered",
+      "answer": "差旅住宿报销需要提供有效发票。",
+      "citations": [
+        {
+          "doc_id": "D01",
+          "quote": "费用发生后30日内提交报销申请。",
+          "version": null,
+          "effective_date": null
+        }
+      ],
+      "gaps": []
+    },
+    "stop_reason": "finish"
+  },
+  "runtime_config": {
+    "model": "fake-evaluation",
+    "budget": {
+      "max_steps": 6,
+      "max_tool_calls": 5,
+      "max_format_repairs": 2,
+      "max_final_validation_retries": 2,
+      "profile": "baseline"
+    }
+  },
+  "review_status": "pending_human_review",
+  "review_checklist": "../human_review_checklist.md",
+  "related_runs": [
+    {
+      "run_id": "run-20261029T102657874076Z-5858e2da",
+      "repeat_index": 1,
+      "actual_status": "answered",
+      "tool_calls": 1,
+      "steps_used": 2,
+      "stop_reason": "finish",
+      "trace_path": "examples\\traces\\fake\\run-20261029T102657874076Z-5858e2da.json"
+    },
+    {
+      "run_id": "run-20261029T102657876077Z-6eb4ae99",
+      "repeat_index": 2,
+      "actual_status": "answered",
+      "tool_calls": 1,
+      "steps_used": 2,
+      "stop_reason": "finish",
+      "trace_path": "examples\\traces\\fake\\run-20261029T102657876077Z-6eb4ae99.json"
+    },
+    {
+      "run_id": "run-20261029T102657877583Z-34dd9e5d",
+      "repeat_index": 3,
+      "actual_status": "answered",
+      "tool_calls": 1,
+      "steps_used": 2,
+      "stop_reason": "finish",
+      "trace_path": "examples\\traces\\fake\\run-20261029T102657877583Z-34dd9e5d.json"
+    },
+    {
+      "run_id": "run-20261029T102657879587Z-9d4d4900",
+      "repeat_index": 4,
+      "actual_status": "answered",
+      "tool_calls": 1,
+      "steps_used": 2,
+      "stop_reason": "finish",
+      "trace_path": "examples\\traces\\fake\\run-20261029T102657879587Z-9d4d4900.json"
+    },
+    {
+      "run_id": "run-20261029T102657881331Z-83092ea1",
+      "repeat_index": 5,
+      "actual_status": "answered",
+      "tool_calls": 1,
+      "steps_used": 2,
+      "stop_reason": "finish",
+      "trace_path": "examples\\traces\\fake\\run-20261029T102657881331Z-83092ea1.json"
+    }
+  ],
+  "semantic_claim": {
+    "claim": "差旅住宿报销需要提供有效发票。",
+    "citation_doc_id": "D01",
+    "citation_quote": "费用发生后30日内提交报销申请。",
+    "citation_authenticity": "pending",
+    "citation_support": "pending",
+    "review_basis": "",
+    "note": "Controlled FakeLLM semantic-support case. Reviewer must judge independently."
+  }
+}

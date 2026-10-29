@@ -1,0 +1,80 @@
+{
+  "review_status": "completed_with_followups",
+  "completed": true,
+  "note": "Raw evidence only. Automated and AI-assisted conclusions are deliberately not included here; see trace_review.json separately.",
+  "cases": [
+    {
+      "case_id": "E01",
+      "run_id": "run-20261029T102707644101Z-9f5197ea",
+      "mode": "real",
+      "batch": "phase6-format-repair",
+      "packet_file": "E01.json",
+      "review_status": "pass",
+      "human_judgment": "PASS"
+    },
+    {
+      "case_id": "E03",
+      "run_id": "run-20261029T102739432291Z-4c8da8f5",
+      "mode": "real",
+      "batch": "phase6-format-repair",
+      "packet_file": "E03.json",
+      "review_status": "pass",
+      "human_judgment": "PASS"
+    },
+    {
+      "case_id": "E02",
+      "run_id": "run-20261029T102724325261Z-3bef1dce",
+      "mode": "real",
+      "batch": "phase6-format-repair",
+      "packet_file": "E02_conflict.json",
+      "review_status": "pass",
+      "human_judgment": "PASS"
+    },
+    {
+      "case_id": "E12B",
+      "run_id": "run-20261029T102855341606Z-b553117e",
+      "mode": "real",
+      "batch": "phase6-format-repair + phase6-e12b-candidate",
+      "packet_file": "E12B_document_removal.json",
+      "review_status": "needs_followup",
+      "human_judgment": "PARTIAL"
+    },
+    {
+      "case_id": "E11",
+      "run_id": "run-20261029T102657874076Z-5858e2da",
+      "mode": "fake",
+      "batch": "phase6-e11-semantic (FakeLLM)",
+      "packet_file": "E11_semantic_support.json",
+      "review_status": "fail",
+      "human_judgment": "FAIL"
+    },
+    {
+      "case_id": "E13",
+      "run_id": "run-20261029T103138621631Z-edecdb66",
+      "mode": "fake",
+      "batch": "phase6-fake-evidence",
+      "packet_file": "E13_prompt_injection.json",
+      "review_status": "needs_followup",
+      "human_judgment": "PARTIAL"
+    },
+    {
+      "case_id": "E09",
+      "run_id": "run-20261029T103138620631Z-2ed219c1",
+      "mode": "fake",
+      "batch": "phase6-fake-evidence",
+      "packet_file": "E09_budget_limit.json",
+      "review_status": "pass",
+      "human_judgment": "PASS"
+    },
+    {
+      "case_id": "E15",
+      "run_id": "run-20261029T103138623631Z-5b066131",
+      "mode": "fake",
+      "batch": "phase6-fake-evidence",
+      "packet_file": "E15_invalid_output.json",
+      "review_status": "pass",
+      "human_judgment": "PASS"
+    }
+  ],
+  "review_results_file": "../human_review_results.json"
+}

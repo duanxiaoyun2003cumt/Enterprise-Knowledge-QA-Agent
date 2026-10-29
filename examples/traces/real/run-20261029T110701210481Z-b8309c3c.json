@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T110701210481Z-b8309c3c",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 5,
+  "tool_calls_made": 4,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T110701210481Z-b8309c3c",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "查找公司制度中关于报销期限的规定"
+    },
+    {
+      "run_id": "run-20261029T110701210481Z-b8309c3c",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "费用报销 时限 规定",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "首次检索“报销期限”无候选，改用同义表达再检索"
+    },
+    {
+      "run_id": "run-20261029T110701210481Z-b8309c3c",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销 发票 提交 时间",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "read_document",
+      "decision_note": "更换关键词组合再次检索；若仍无候选则结束为证据不足"
+    },
+    {
+      "run_id": "run-20261029T110701210481Z-b8309c3c",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "候选文档可能与报销提交要求相关，需读取全文核实是否含期限规定"
+    },
+    {
+      "run_id": "run-20261029T110701210481Z-b8309c3c",
+      "step": 5,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "未能在现有知识库中找到关于报销期限的规定。已检索“报销期限”“费用报销 时限 规定”“报销 发票 提交 时间”等关键词，仅找到《差旅住宿FAQ》，该文档仅说明报销所需材料，未涉及报销期限。建议补充或确认相关制度文档后再查询。",
+        "citations": [],
+        "gaps": [
+          "知识库中缺少规定报销期限的制度文档",
+          "《差旅住宿FAQ》仅涉材料要求，未包含期限信息"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "三次检索仅命中一份不相关文档，已读全文确认无期限规定，证据不足"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "未能在现有知识库中找到关于报销期限的规定。已检索“报销期限”“费用报销 时限 规定”“报销 发票 提交 时间”等关键词，仅找到《差旅住宿FAQ》，该文档仅说明报销所需材料，未涉及报销期限。建议补充或确认相关制度文档后再查询。",
+    "citations": [],
+    "gaps": [
+      "知识库中缺少规定报销期限的制度文档",
+      "《差旅住宿FAQ》仅涉材料要求，未包含期限信息"
+    ]
+  },
+  "stop_reason": "finish"
+}

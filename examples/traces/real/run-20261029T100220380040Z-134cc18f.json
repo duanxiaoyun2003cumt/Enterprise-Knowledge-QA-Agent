@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T100220380040Z-134cc18f",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "公司年会在哪里举办？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 6,
+  "tool_calls_made": 4,
+  "steps": [
+    {
+      "run_id": "run-20261029T100220380040Z-134cc18f",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "公司年会 举办地点",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "检索与公司年会举办地点直接相关的文档"
+    },
+    {
+      "run_id": "run-20261029T100220380040Z-134cc18f",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "年会 场地 酒店 地址",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "首次检索无候选，改用场地相关表达再检一次"
+    },
+    {
+      "run_id": "run-20261029T100220380040Z-134cc18f",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "invalid_action",
+      "decision_note": "读取唯一候选文档，核实是否包含公司年会举办地点"
+    },
+    {
+      "run_id": "run-20261029T100220380040Z-134cc18f",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Extra data（line 3, column 1）"
+      ],
+      "next_action": "search_documents",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T100220380040Z-134cc18f",
+      "step": 5,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "年会",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "已读候选不含答案，用最宽泛关键词“年会”再检一次"
+    },
+    {
+      "run_id": "run-20261029T100220380040Z-134cc18f",
+      "step": 6,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "当前知识库中没有找到关于公司年会举办地点的资料，无法确认。",
+        "citations": [],
+        "gaps": [
+          "知识库中未检索到公司年会举办地点相关文档",
+          "唯一候选文档《差旅住宿FAQ》仅涉及差旅住宿费用报销凭证，不含年会地点信息"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "多次检索均无相关候选，已读文档不含所需事实，故结束为证据不足"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "当前知识库中没有找到关于公司年会举办地点的资料，无法确认。",
+    "citations": [],
+    "gaps": [
+      "知识库中未检索到公司年会举办地点相关文档",
+      "唯一候选文档《差旅住宿FAQ》仅涉及差旅住宿费用报销凭证，不含年会地点信息"
+    ]
+  },
+  "stop_reason": "finish"
+}

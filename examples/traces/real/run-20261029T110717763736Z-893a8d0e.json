@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T110717763736Z-893a8d0e",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 8,
+  "tool_calls_made": 5,
+  "format_repairs": 2,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Extra data（line 3, column 1）"
+      ],
+      "repair_kind": "format",
+      "next_action": "search_documents",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "重新以单条合法动作检索报销期限相关制度"
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "费用报销 时限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "首轮检索无候选，换用“费用报销 时限”表达再次检索"
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "read_document",
+      "decision_note": "改用最宽泛关键词“报销”，确认知识库是否收录相关制度"
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 5,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "invalid_action",
+      "decision_note": "唯一候选文档，读取全文确认是否含报销期限规定"
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 6,
+      "model": "deepseek-flash",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Extra data（line 3, column 1）"
+      ],
+      "repair_kind": "format",
+      "next_action": "search_documents",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 7,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "发票 报销 有效期 时限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "已读文档不含期限事实；最后尝试从发票有效期角度检索"
+    },
+    {
+      "run_id": "run-20261029T110717763736Z-893a8d0e",
+      "step": 8,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "知识库中未找到关于报销期限（如须在费用发生后多少天内提交报销）的规定。检索到的《差旅住宿FAQ》只说明了差旅住宿费用报销所需的凭证，未涉及提交期限。建议咨询财务部门或查阅专门的报销管理制度。",
+        "citations": [
+          {
+            "doc_id": "D03",
+            "quote": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": [
+          "知识库缺少财务报销制度/报销时限相关文档，无法回答具体报销期限",
+          "已用检索工具次数达上限，未能继续扩大检索范围"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "多轮检索仅命中凭证类FAQ，已读全文确认无期限规定，凭现有证据结束"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "知识库中未找到关于报销期限（如须在费用发生后多少天内提交报销）的规定。检索到的《差旅住宿FAQ》只说明了差旅住宿费用报销所需的凭证，未涉及提交期限。建议咨询财务部门或查阅专门的报销管理制度。",
+    "citations": [
+      {
+        "doc_id": "D03",
+        "quote": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": [
+      "知识库缺少财务报销制度/报销时限相关文档，无法回答具体报销期限",
+      "已用检索工具次数达上限，未能继续扩大检索范围"
+    ]
+  },
+  "stop_reason": "finish"
+}

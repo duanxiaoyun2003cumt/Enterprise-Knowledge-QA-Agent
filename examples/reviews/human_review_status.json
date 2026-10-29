@@ -1,0 +1,24 @@
+{
+  "status": "completed_with_followups",
+  "completed": true,
+  "reviewer": "user",
+  "reviewed_at": "2026-10-29",
+  "summary": {
+    "total": 8,
+    "pass": 5,
+    "fail": 1,
+    "needs_followup": 2
+  },
+  "cases": [
+    "E01",
+    "E02",
+    "E03",
+    "E09",
+    "E11",
+    "E12B",
+    "E13",
+    "E15"
+  ],
+  "results_file": "human_review_results.json",
+  "note": "Human review recorded. E11 failed semantic support; E12B and E13 need follow-up. Final project acceptance is not complete."
+}

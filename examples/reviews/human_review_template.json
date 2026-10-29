@@ -1,0 +1,16 @@
+{
+  "case_id": "<case id>",
+  "run_id": "<run id>",
+  "reviewer": null,
+  "reviewed_at": null,
+  "review_status": "pending",
+  "answer_correctness": "pending",
+  "citation_authenticity": "pending",
+  "citation_support": "pending",
+  "conflict_handling": "pending",
+  "insufficient_evidence_handling": "pending",
+  "security_boundary": "pending",
+  "budget_compliance": "pending",
+  "review_notes": "",
+  "issues_found": []
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T110641672233Z-ee733172",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 5,
+  "tool_calls_made": 4,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T110641672233Z-ee733172",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "检索与报销期限直接相关的制度文档"
+    },
+    {
+      "run_id": "run-20261029T110641672233Z-ee733172",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "费用报销 时限 规定",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "首次查询无候选，改用同义表达再检索"
+    },
+    {
+      "run_id": "run-20261029T110641672233Z-ee733172",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "发票 报销 提交 截止时间",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "read_document",
+      "decision_note": "两次无候选，最后尝试一次不同关键词表达"
+    },
+    {
+      "run_id": "run-20261029T110641672233Z-ee733172",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "唯一候选可能含报销相关期限，需读取全文核实"
+    },
+    {
+      "run_id": "run-20261029T110641672233Z-ee733172",
+      "step": 5,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "未能在现有知识库中找到关于报销期限的规定。已检索“报销期限”“费用报销 时限 规定”“发票 报销 提交 截止时间”，仅命中《差旅住宿FAQ》，该文档只说明报销需提供有效发票及订单或入住凭证，未涉及报销时限。建议咨询财务部门或补充相关制度文档。",
+        "citations": [
+          {
+            "doc_id": "D03",
+            "quote": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": [
+          "知识库中缺少明确规定报销期限（提交截止时间）的制度文档",
+          "《差旅住宿FAQ》未包含报销时限相关内容"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "三次检索后唯一候选文档已读，全文不含报销期限事实，证据不足"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "未能在现有知识库中找到关于报销期限的规定。已检索“报销期限”“费用报销 时限 规定”“发票 报销 提交 截止时间”，仅命中《差旅住宿FAQ》，该文档只说明报销需提供有效发票及订单或入住凭证，未涉及报销时限。建议咨询财务部门或补充相关制度文档。",
+    "citations": [
+      {
+        "doc_id": "D03",
+        "quote": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": [
+      "知识库中缺少明确规定报销期限（提交截止时间）的制度文档",
+      "《差旅住宿FAQ》未包含报销时限相关内容"
+    ]
+  },
+  "stop_reason": "finish"
+}

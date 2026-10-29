@@ -1,0 +1,147 @@
+{
+  "packet_version": 1,
+  "case_id": "E15",
+  "run_id": "run-20261029T103138623631Z-5b066131",
+  "mode": "fake",
+  "batch": "phase6-fake-evidence",
+  "input": "报销期限是多久？",
+  "history": null,
+  "expected_behavior": "连续非法输出不执行工具，并由全局步数上限终止，返回 incomplete。",
+  "documents": [
+    {
+      "doc_id": "D01",
+      "title": "费用报销管理制度",
+      "version_date": "2025-01-15",
+      "content": "费用发生后30日内提交报销申请。"
+    },
+    {
+      "doc_id": "D02",
+      "title": "财务报销操作细则",
+      "version_date": "2025-04-01",
+      "content": "费用发生后15日内提交报销申请。"
+    },
+    {
+      "doc_id": "D03",
+      "title": "差旅住宿FAQ",
+      "version_date": "2025-03-01",
+      "content": "差旅住宿费用报销需要提供有效发票及订单或入住凭证。"
+    },
+    {
+      "doc_id": "D04",
+      "title": "产品X FAQ",
+      "version_date": "2025-02-01",
+      "content": "产品X企业版支持SAML 2.0单点登录。"
+    }
+  ],
+  "final_output": {
+    "status": "incomplete",
+    "answer": "已达到最大执行步数，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "需要进一步检索或核实资料"
+    ]
+  },
+  "trace_path": "examples\\traces\\fake\\run-20261029T103138623631Z-5b066131.json",
+  "trace": {
+    "schema_version": 1,
+    "run_id": "run-20261029T103138623631Z-5b066131",
+    "mode": "fake",
+    "model": "fake-evaluation",
+    "question": "报销期限是多久？",
+    "history_messages_included": 0,
+    "max_steps": 3,
+    "max_tool_calls": 5,
+    "steps_used": 3,
+    "tool_calls_made": 0,
+    "format_repairs": 3,
+    "final_validation_retries": 0,
+    "steps": [
+      {
+        "run_id": "run-20261029T103138623631Z-5b066131",
+        "step": 1,
+        "model": "fake-evaluation",
+        "action_name": "invalid_action",
+        "action_params": null,
+        "action_validation": "invalid_action",
+        "tool_name": null,
+        "tool_result_summary": "动作未通过 JSON/Schema 校验",
+        "tool_error_type": "InvalidAction",
+        "observation_ok": false,
+        "validation_errors": [
+          "JSON 解析失败：Expecting value（line 1, column 1）"
+        ],
+        "repair_kind": "format",
+        "next_action": "invalid_action",
+        "decision_note": null
+      },
+      {
+        "run_id": "run-20261029T103138623631Z-5b066131",
+        "step": 2,
+        "model": "fake-evaluation",
+        "action_name": "invalid_action",
+        "action_params": null,
+        "action_validation": "invalid_action",
+        "tool_name": null,
+        "tool_result_summary": "动作未通过 JSON/Schema 校验",
+        "tool_error_type": "InvalidAction",
+        "observation_ok": false,
+        "validation_errors": [
+          "JSON 解析失败：Expecting value（line 1, column 1）"
+        ],
+        "repair_kind": "format",
+        "next_action": "invalid_action",
+        "decision_note": null
+      },
+      {
+        "run_id": "run-20261029T103138623631Z-5b066131",
+        "step": 3,
+        "model": "fake-evaluation",
+        "action_name": "invalid_action",
+        "action_params": null,
+        "action_validation": "invalid_action",
+        "tool_name": null,
+        "tool_result_summary": "动作未通过 JSON/Schema 校验",
+        "tool_error_type": "InvalidAction",
+        "observation_ok": false,
+        "validation_errors": [
+          "JSON 解析失败：Expecting value（line 1, column 1）"
+        ],
+        "repair_kind": "format",
+        "next_action": "max_steps",
+        "decision_note": null
+      }
+    ],
+    "final_result": {
+      "status": "incomplete",
+      "answer": "已达到最大执行步数，任务尚未完成。",
+      "citations": [],
+      "gaps": [
+        "需要进一步检索或核实资料"
+      ]
+    },
+    "stop_reason": "max_steps"
+  },
+  "runtime_config": {
+    "model": "fake-evaluation",
+    "budget": {
+      "max_steps": 3,
+      "max_tool_calls": 5,
+      "max_format_repairs": 10,
+      "max_final_validation_retries": 10,
+      "profile": "baseline"
+    }
+  },
+  "review_status": "pending_human_review",
+  "review_checklist": "../human_review_checklist.md",
+  "related_runs": [
+    {
+      "run_id": "run-20261029T103138623631Z-5b066131",
+      "repeat_index": null,
+      "actual_status": "incomplete",
+      "tool_calls": 0,
+      "steps_used": 3,
+      "stop_reason": "max_steps",
+      "trace_path": "examples\\traces\\fake\\run-20261029T103138623631Z-5b066131.json"
+    }
+  ]
+}

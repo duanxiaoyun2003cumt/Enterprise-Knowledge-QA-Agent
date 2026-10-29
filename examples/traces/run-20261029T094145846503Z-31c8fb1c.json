@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T094145846503Z-31c8fb1c",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 4,
+  "tool_calls_made": 3,
+  "steps": [
+    {
+      "run_id": "run-20261029T094145846503Z-31c8fb1c",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "用户询问报销期限，先检索相关制度文档。"
+    },
+    {
+      "run_id": "run-20261029T094145846503Z-31c8fb1c",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D01"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D01（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "候选文档D01含报销期限表述，需读取原文核实。"
+    },
+    {
+      "run_id": "run-20261029T094145846503Z-31c8fb1c",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D02"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D02（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "D02给出不同期限，需读取原文确认适用范围及是否存在优先级依据。"
+    },
+    {
+      "run_id": "run-20261029T094145846503Z-31c8fb1c",
+      "step": 4,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "needs_clarification",
+        "answer": "现有资料对报销期限存在冲突，无法确定唯一适用期限：一份制度规定费用发生后30日内提交报销申请，另一份细则规定15日内提交。请明确应适用哪份制度或是否存在优先级/适用范围说明。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "费用发生后30日内提交报销申请。",
+            "version": null,
+            "effective_date": null
+          },
+          {
+            "doc_id": "D02",
+            "quote": "费用发生后15日内提交报销申请。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": [
+          "两份文档对报销期限规定不一致，且原文未说明适用范围或优先级，无法自行判定适用哪一条。"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "两份已读文档给出不同期限且缺少优先级依据，按规则需向用户澄清。"
+    }
+  ],
+  "final_result": {
+    "status": "needs_clarification",
+    "answer": "现有资料对报销期限存在冲突，无法确定唯一适用期限：一份制度规定费用发生后30日内提交报销申请，另一份细则规定15日内提交。请明确应适用哪份制度或是否存在优先级/适用范围说明。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "quote": "费用发生后30日内提交报销申请。",
+        "version": null,
+        "effective_date": null
+      },
+      {
+        "doc_id": "D02",
+        "quote": "费用发生后15日内提交报销申请。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": [
+      "两份文档对报销期限规定不一致，且原文未说明适用范围或优先级，无法自行判定适用哪一条。"
+    ]
+  },
+  "stop_reason": "finish"
+}

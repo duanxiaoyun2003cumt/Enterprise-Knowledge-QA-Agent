@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095850218610Z-138694f2",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "完全无关的海洋生物学问题",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 2,
+  "tool_calls_made": 1,
+  "steps": [
+    {
+      "run_id": "run-20261029T095850218610Z-138694f2",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "完全无关的海洋生物学问题",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "先检索是否有相关资料"
+    },
+    {
+      "run_id": "run-20261029T095850218610Z-138694f2",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "知识库中没有与问题相关的资料。",
+        "citations": [],
+        "gaps": [
+          "知识库无相关文档"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "空检索是正常结果，不能伪造答案"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "知识库中没有与问题相关的资料。",
+    "citations": [],
+    "gaps": [
+      "知识库无相关文档"
+    ]
+  },
+  "stop_reason": "finish"
+}

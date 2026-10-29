@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T110710627476Z-d6f8cf17",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 3,
+  "tool_calls_made": 2,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T110710627476Z-d6f8cf17",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限 多久",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "直接检索报销期限相关制度条款"
+    },
+    {
+      "run_id": "run-20261029T110710627476Z-d6f8cf17",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "费用报销管理办法 时限",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "首次检索无候选，改用制度名称类关键词重试"
+    },
+    {
+      "run_id": "run-20261029T110710627476Z-d6f8cf17",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "知识库中未检索到关于报销期限的制度或规定，无法给出具体期限。",
+        "citations": [],
+        "gaps": [
+          "未找到任何与“报销期限/费用报销时限”相关的文档，缺少可核实的制度依据"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "两次不同关键词检索均返回空候选，无文档可读取引用"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "知识库中未检索到关于报销期限的制度或规定，无法给出具体期限。",
+    "citations": [],
+    "gaps": [
+      "未找到任何与“报销期限/费用报销时限”相关的文档，缺少可核实的制度依据"
+    ]
+  },
+  "stop_reason": "finish"
+}

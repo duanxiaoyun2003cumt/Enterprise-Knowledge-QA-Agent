@@ -1,0 +1,1904 @@
+{
+  "metadata": {
+    "started_at": "2026-10-29T10:27:07.609481+00:00",
+    "batch_label": "phase6-format-repair",
+    "profile": "baseline",
+    "real_only": true,
+    "repeats_default": 1,
+    "repeat_plan": {
+      "E01": 5,
+      "E02": 3,
+      "E03": 5,
+      "E04": 3,
+      "E05": 3,
+      "E12A": 3,
+      "E12B": 3
+    },
+    "budget": {
+      "max_steps": 6,
+      "max_tool_calls": 5,
+      "max_format_repairs": 2,
+      "max_final_validation_retries": 2
+    },
+    "prompt_sha256": "0cc3d5dbf9e0498adce07d8bb45964b1860e9f5565c85b1d618b2a1686bc450f",
+    "cases_file": "examples\\evaluation_cases.json",
+    "notes": "FakeLLM and real-model runs must be interpreted separately; manual semantic review is not completed for every sample.",
+    "completed_at": "2026-10-29T10:36:53.177387+00:00",
+    "models": [
+      "deepseek-flash"
+    ]
+  },
+  "summary": {
+    "total_runs": 25,
+    "evaluated": 25,
+    "passed": 24,
+    "failed": 1,
+    "blocked": 0,
+    "pass_rate_basis": "automated_assertions",
+    "pass_rate": 0.96,
+    "business_pass_rate": null,
+    "manual_review_pending": 25,
+    "manual_semantic_review_pending": 25,
+    "total_steps": 99,
+    "total_tool_calls": 67,
+    "format_repairs_total": 8,
+    "runs_with_format_repairs": 7,
+    "format_repairs_recovered_and_passed": 7,
+    "final_validation_retries_total": 0,
+    "runs_with_final_validation_retries": 0,
+    "final_validation_retries_recovered_and_passed": 0,
+    "budget_exhaustions": 1,
+    "complete": true
+  },
+  "per_case": [
+    {
+      "case_id": "E01",
+      "category": "retrieval_answer",
+      "mode": "real",
+      "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+      "statistics": {
+        "runs": 5,
+        "evaluated": 5,
+        "passed": 5,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 5
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 5,
+        "manual_semantic_review_pending": 5,
+        "avg_steps": 3.2,
+        "avg_tool_calls": 2.0,
+        "avg_format_repairs": 0.2,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E01",
+          "category": "retrieval_answer",
+          "mode": "real",
+          "run_id": "run-20261029T102707644101Z-9f5197ea",
+          "input": "差旅住宿费报销需要哪些材料？",
+          "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102707644101Z-9f5197ea.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E01",
+          "category": "retrieval_answer",
+          "mode": "real",
+          "run_id": "run-20261029T102711879069Z-3a596fb4",
+          "input": "差旅住宿费报销需要哪些材料？",
+          "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102711879069Z-3a596fb4.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E01",
+          "category": "retrieval_answer",
+          "mode": "real",
+          "run_id": "run-20261029T102715225423Z-1e6cc7a7",
+          "input": "差旅住宿费报销需要哪些材料？",
+          "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102715225423Z-1e6cc7a7.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        },
+        {
+          "case_id": "E01",
+          "category": "retrieval_answer",
+          "mode": "real",
+          "run_id": "run-20261029T102718191381Z-1aa155cc",
+          "input": "差旅住宿费报销需要哪些材料？",
+          "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102718191381Z-1aa155cc.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 4
+        },
+        {
+          "case_id": "E01",
+          "category": "retrieval_answer",
+          "mode": "real",
+          "run_id": "run-20261029T102721455138Z-08b9986d",
+          "input": "差旅住宿费报销需要哪些材料？",
+          "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102721455138Z-08b9986d.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 5
+        }
+      ]
+    },
+    {
+      "case_id": "E02",
+      "category": "conflict",
+      "mode": "real",
+      "expected_behavior": "读取 D01/D02，报告 30 日与 15 日冲突，说明缺少适用范围或优先级，请求澄清。",
+      "statistics": {
+        "runs": 3,
+        "evaluated": 3,
+        "passed": 3,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 3
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 3,
+        "manual_semantic_review_pending": 3,
+        "avg_steps": 4.333333333333333,
+        "avg_tool_calls": 3.0,
+        "avg_format_repairs": 0.3333333333333333,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E02",
+          "category": "conflict",
+          "mode": "real",
+          "run_id": "run-20261029T102724325261Z-3bef1dce",
+          "input": "报销期限是多久？",
+          "expected_behavior": "读取 D01/D02，报告 30 日与 15 日冲突，说明缺少适用范围或优先级，请求澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份已读文档对报销期限给出不同天数（30日/15日），且原文未提供适用范围或优先级依据，无法自行选择其一']"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 5,
+          "trace_path": "examples\\traces\\real\\run-20261029T102724325261Z-3bef1dce.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E02",
+          "category": "conflict",
+          "mode": "real",
+          "run_id": "run-20261029T102730594047Z-3d34d67b",
+          "input": "报销期限是多久？",
+          "expected_behavior": "读取 D01/D02，报告 30 日与 15 日冲突，说明缺少适用范围或优先级，请求澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份文档对同一报销期限分别规定30日和15日，均未说明适用范围或优先适用规则，缺少判定优先级的依据']"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102730594047Z-3d34d67b.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E02",
+          "category": "conflict",
+          "mode": "real",
+          "run_id": "run-20261029T102735273063Z-9e848076",
+          "input": "报销期限是多久？",
+          "expected_behavior": "读取 D01/D02，报告 30 日与 15 日冲突，说明缺少适用范围或优先级，请求澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份文档对报销期限规定冲突（30日 vs 15日），且原文未给出适用范围或优先级依据']"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102735273063Z-9e848076.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        }
+      ]
+    },
+    {
+      "case_id": "E03",
+      "category": "out_of_knowledge",
+      "mode": "real",
+      "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+      "statistics": {
+        "runs": 5,
+        "evaluated": 5,
+        "passed": 5,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 5
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 5,
+        "manual_semantic_review_pending": 5,
+        "avg_steps": 3.4,
+        "avg_tool_calls": 2.4,
+        "avg_format_repairs": 0.0,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E03",
+          "category": "out_of_knowledge",
+          "mode": "real",
+          "run_id": "run-20261029T102739432291Z-4c8da8f5",
+          "input": "公司年会在哪里举办？",
+          "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_empty",
+              "passed": true,
+              "detail": "citation count=0"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102739432291Z-4c8da8f5.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E03",
+          "category": "out_of_knowledge",
+          "mode": "real",
+          "run_id": "run-20261029T102743114800Z-fd0c6dbd",
+          "input": "公司年会在哪里举办？",
+          "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_empty",
+              "passed": true,
+              "detail": "citation count=0"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 4,
+          "steps_used": 5,
+          "trace_path": "examples\\traces\\real\\run-20261029T102743114800Z-fd0c6dbd.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E03",
+          "category": "out_of_knowledge",
+          "mode": "real",
+          "run_id": "run-20261029T102750078227Z-e0a8ead5",
+          "input": "公司年会在哪里举办？",
+          "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_empty",
+              "passed": true,
+              "detail": "citation count=0"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102750078227Z-e0a8ead5.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        },
+        {
+          "case_id": "E03",
+          "category": "out_of_knowledge",
+          "mode": "real",
+          "run_id": "run-20261029T102754853494Z-a0c1d605",
+          "input": "公司年会在哪里举办？",
+          "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_empty",
+              "passed": true,
+              "detail": "citation count=0"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102754853494Z-a0c1d605.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 4
+        },
+        {
+          "case_id": "E03",
+          "category": "out_of_knowledge",
+          "mode": "real",
+          "run_id": "run-20261029T102759066941Z-24053421",
+          "input": "公司年会在哪里举办？",
+          "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_empty",
+              "passed": true,
+              "detail": "citation count=0"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102759066941Z-24053421.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 5
+        }
+      ]
+    },
+    {
+      "case_id": "E04",
+      "category": "paraphrase",
+      "mode": "real",
+      "expected_behavior": "通过查询扩展召回 D03，并给出有真实引用的材料说明。",
+      "statistics": {
+        "runs": 3,
+        "evaluated": 3,
+        "passed": 3,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 3
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 3,
+        "manual_semantic_review_pending": 3,
+        "avg_steps": 3.0,
+        "avg_tool_calls": 2.0,
+        "avg_format_repairs": 0.0,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E04",
+          "category": "paraphrase",
+          "mode": "real",
+          "run_id": "run-20261029T102803414138Z-05b7242c",
+          "input": "酒店费用要提供什么？",
+          "expected_behavior": "通过查询扩展召回 D03，并给出有真实引用的材料说明。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102803414138Z-05b7242c.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E04",
+          "category": "paraphrase",
+          "mode": "real",
+          "run_id": "run-20261029T102807112789Z-65c877da",
+          "input": "酒店费用要提供什么？",
+          "expected_behavior": "通过查询扩展召回 D03，并给出有真实引用的材料说明。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102807112789Z-65c877da.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E04",
+          "category": "paraphrase",
+          "mode": "real",
+          "run_id": "run-20261029T102809897942Z-bf2abda2",
+          "input": "酒店费用要提供什么？",
+          "expected_behavior": "通过查询扩展召回 D03，并给出有真实引用的材料说明。",
+          "risk_level": "medium",
+          "actual_status": "answered",
+          "assertion_results": [
+            {
+              "check": "status_in:answered",
+              "passed": true,
+              "detail": "status=answered; expected in answered"
+            },
+            {
+              "check": "citations_include:D03",
+              "passed": true,
+              "detail": "citations=['D03']; required ['D03']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=answered; trace_status=answered"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102809897942Z-bf2abda2.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        }
+      ]
+    },
+    {
+      "case_id": "E05",
+      "category": "followup",
+      "mode": "real",
+      "expected_behavior": "结合历史理解提交期限问题，重新检索并读取 D01/D02，发现冲突后请求澄清。",
+      "statistics": {
+        "runs": 3,
+        "evaluated": 3,
+        "passed": 3,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 3
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 3,
+        "manual_semantic_review_pending": 3,
+        "avg_steps": 5.0,
+        "avg_tool_calls": 3.3333333333333335,
+        "avg_format_repairs": 0.6666666666666666,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E05",
+          "category": "followup",
+          "mode": "real",
+          "run_id": "run-20261029T102813775772Z-3dea464f",
+          "input": "那最晚什么时候提交？",
+          "expected_behavior": "结合历史理解提交期限问题，重新检索并读取 D01/D02，发现冲突后请求澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份文档对报销提交期限规定不一致（30日/15日），且缺少适用范围或优先级的原文依据']"
+            },
+            {
+              "check": "history_included",
+              "passed": true,
+              "detail": "history_messages_included=2"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 5,
+          "trace_path": "examples\\traces\\real\\run-20261029T102813775772Z-3dea464f.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E05",
+          "category": "followup",
+          "mode": "real",
+          "run_id": "run-20261029T102820788711Z-005616aa",
+          "input": "那最晚什么时候提交？",
+          "expected_behavior": "结合历史理解提交期限问题，重新检索并读取 D01/D02，发现冲突后请求澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份制度对提交期限分别规定为30日和15日，缺少适用范围或效力优先级的原文依据，无法判定以哪一份为准。']"
+            },
+            {
+              "check": "history_included",
+              "passed": true,
+              "detail": "history_messages_included=2"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102820788711Z-005616aa.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E05",
+          "category": "followup",
+          "mode": "real",
+          "run_id": "run-20261029T102827758722Z-9ff971c0",
+          "input": "那最晚什么时候提交？",
+          "expected_behavior": "结合历史理解提交期限问题，重新检索并读取 D01/D02，发现冲突后请求澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['D01（30日）与D02（15日）期限规定不一致，原文未说明适用范围或优先级', 'D03未涉及提交期限']"
+            },
+            {
+              "check": "history_included",
+              "passed": true,
+              "detail": "history_messages_included=2"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 4,
+          "steps_used": 6,
+          "trace_path": "examples\\traces\\real\\run-20261029T102827758722Z-9ff971c0.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        }
+      ]
+    },
+    {
+      "case_id": "E12A",
+      "category": "document_replacement",
+      "mode": "real",
+      "expected_behavior": "替换 D01 为 45 日后，Agent 必须反映新证据；D02 仍为 15 日，合理结果仍是冲突澄清。",
+      "statistics": {
+        "runs": 3,
+        "evaluated": 3,
+        "passed": 3,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 3
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 3,
+        "manual_semantic_review_pending": 3,
+        "avg_steps": 5.0,
+        "avg_tool_calls": 3.0,
+        "avg_format_repairs": 1.0,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E12A",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102837047138Z-20e10660",
+          "input": "报销期限是多久？",
+          "expected_behavior": "替换 D01 为 45 日后，Agent 必须反映新证据；D02 仍为 15 日，合理结果仍是冲突澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份文档对报销期限分别规定45日和15日，原文均未给出适用范围或优先级依据，无法判断适用哪一期限']"
+            },
+            {
+              "check": "answer_contains:45",
+              "passed": true,
+              "detail": "answer_contains='45'"
+            },
+            {
+              "check": "answer_not_contains:30",
+              "passed": true,
+              "detail": "answer_not_contains='30'"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 6,
+          "trace_path": "examples\\traces\\real\\run-20261029T102837047138Z-20e10660.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 2,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E12A",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102843879468Z-6313511a",
+          "input": "报销期限是多久？",
+          "expected_behavior": "替换 D01 为 45 日后，Agent 必须反映新证据；D02 仍为 15 日，合理结果仍是冲突澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份文档规定的报销期限分别为45日和15日，且原文均未说明适用范围、优先级或冲突处理规则，无法判断应适用哪一期限。']"
+            },
+            {
+              "check": "answer_contains:45",
+              "passed": true,
+              "detail": "answer_contains='45'"
+            },
+            {
+              "check": "answer_not_contains:30",
+              "passed": true,
+              "detail": "answer_not_contains='30'"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 5,
+          "trace_path": "examples\\traces\\real\\run-20261029T102843879468Z-6313511a.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E12A",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102850065610Z-b89a93d2",
+          "input": "报销期限是多久？",
+          "expected_behavior": "替换 D01 为 45 日后，Agent 必须反映新证据；D02 仍为 15 日，合理结果仍是冲突澄清。",
+          "risk_level": "high",
+          "actual_status": "needs_clarification",
+          "assertion_results": [
+            {
+              "check": "status_in:needs_clarification",
+              "passed": true,
+              "detail": "status=needs_clarification; expected in needs_clarification"
+            },
+            {
+              "check": "citations_include:D01,D02",
+              "passed": true,
+              "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+            },
+            {
+              "check": "citations_read",
+              "passed": true,
+              "detail": "unread citations=[]"
+            },
+            {
+              "check": "quotes_valid",
+              "passed": true,
+              "detail": "all quotes are exact substrings"
+            },
+            {
+              "check": "gaps_nonempty",
+              "passed": true,
+              "detail": "gaps=['两份文档对同一事项规定了不同期限（45日与15日），且原文未提供适用范围或优先级依据，无法判断应适用哪一期限。']"
+            },
+            {
+              "check": "answer_contains:45",
+              "passed": true,
+              "detail": "answer_contains='45'"
+            },
+            {
+              "check": "answer_not_contains:30",
+              "passed": true,
+              "detail": "answer_not_contains='30'"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102850065610Z-b89a93d2.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        }
+      ]
+    },
+    {
+      "case_id": "E12B",
+      "category": "document_replacement",
+      "mode": "real",
+      "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+      "statistics": {
+        "runs": 3,
+        "evaluated": 3,
+        "passed": 2,
+        "failed": 1,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 0.6666666666666666,
+        "business_pass_rate": null,
+        "sample_variance": 0.33333333333333337,
+        "failure_types": {
+          "status_in:insufficient_evidence,needs_clarification": 1,
+          "stop_reason_in:finish": 1
+        },
+        "stop_reasons": {
+          "tool_limit": 1,
+          "finish": 2
+        },
+        "budget_exhaustions": 1,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 3,
+        "manual_semantic_review_pending": 3,
+        "avg_steps": 4.666666666666667,
+        "avg_tool_calls": 3.6666666666666665,
+        "avg_format_repairs": 0.3333333333333333,
+        "avg_final_validation_retries": 0.0
+      },
+      "runs": [
+        {
+          "case_id": "E12B",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102855341606Z-b553117e",
+          "input": "报销期限是多久？",
+          "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+          "risk_level": "high",
+          "actual_status": "incomplete",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": false,
+              "detail": "status=incomplete; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_exclude:D01,D02",
+              "passed": true,
+              "detail": "citations=[]; forbidden ['D01', 'D02']"
+            },
+            {
+              "check": "result_never_answered",
+              "passed": true,
+              "detail": "final_status=incomplete"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": false,
+              "detail": "stop_reason=tool_limit; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=incomplete; trace_status=incomplete"
+            }
+          ],
+          "tool_calls": 5,
+          "steps_used": 5,
+          "trace_path": "examples\\traces\\real\\run-20261029T102855341606Z-b553117e.json",
+          "failure_reasons": [
+            "status_in:insufficient_evidence,needs_clarification",
+            "stop_reason_in:finish"
+          ],
+          "automated_status": "fail",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "fail",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "tool_limit",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E12B",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102901294822Z-789abcac",
+          "input": "报销期限是多久？",
+          "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_exclude:D01,D02",
+              "passed": true,
+              "detail": "citations=['D03']; forbidden ['D01', 'D02']"
+            },
+            {
+              "check": "result_never_answered",
+              "passed": true,
+              "detail": "final_status=insufficient_evidence"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 4,
+          "steps_used": 6,
+          "trace_path": "examples\\traces\\real\\run-20261029T102901294822Z-789abcac.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E12B",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102908961811Z-5945d7cc",
+          "input": "报销期限是多久？",
+          "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_exclude:D01,D02",
+              "passed": true,
+              "detail": "citations=[]; forbidden ['D01', 'D02']"
+            },
+            {
+              "check": "result_never_answered",
+              "passed": true,
+              "detail": "final_status=insufficient_evidence"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 2,
+          "steps_used": 3,
+          "trace_path": "examples\\traces\\real\\run-20261029T102908961811Z-5945d7cc.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 6,
+            "max_tool_calls": 5,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "baseline"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 3
+        }
+      ]
+    }
+  ]
+}

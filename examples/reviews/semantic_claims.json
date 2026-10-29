@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "case_id": "E11",
+      "run_id": "run-20261029T102657874076Z-5858e2da",
+      "claim": "差旅住宿报销需要提供有效发票。",
+      "citation_doc_id": "D01",
+      "citation_quote": "费用发生后30日内提交报销申请。",
+      "citation_authenticity": "pass",
+      "citation_support": "fail",
+      "review_basis": "User human review: D01's real 30-day quote does not support the accommodation-materials claim.",
+      "note": "Actual controlled FakeLLM claim/quote; human reviewer must independently decide semantic support.",
+      "reviewer": "user",
+      "reviewed_at": "2026-10-29"
+    }
+  ]
+}

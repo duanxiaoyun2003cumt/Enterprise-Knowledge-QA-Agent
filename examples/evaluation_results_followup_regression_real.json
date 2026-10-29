@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "generated_at": "2026-10-29T11:09:20.820720+00:00",
+    "profile": "baseline",
+    "budget": {
+      "max_steps": 6,
+      "max_tool_calls": 5
+    },
+    "models": [
+      "deepseek-flash"
+    ],
+    "fake_only": false,
+    "cases_file": "examples\\evaluation_cases.json"
+  },
+  "summary": {
+    "total": 3,
+    "executed": 3,
+    "passed": 0,
+    "failed": 0,
+    "pending_review": 3,
+    "blocked": 0,
+    "not_run": 0,
+    "automated_passed": 3,
+    "automated_failed": 0,
+    "overall_pass_rate": null,
+    "decided_pass_rate": null,
+    "automated_pass_rate": 1.0,
+    "pass_rate_denominator": 0
+  },
+  "cases": [
+    {
+      "case_id": "E01",
+      "category": "retrieval_answer",
+      "mode": "real",
+      "run_id": "run-20261029T110909377284Z-d3de8859",
+      "input": "差旅住宿费报销需要哪些材料？",
+      "expected_behavior": "回答差旅住宿报销材料，且引用当前运行中真实读取的 D03 原文。",
+      "risk_level": "medium",
+      "actual_status": "answered",
+      "assertion_results": [
+        {
+          "check": "status_in:answered",
+          "passed": true,
+          "detail": "status=answered; expected in answered"
+        },
+        {
+          "check": "citations_include:D03",
+          "passed": true,
+          "detail": "citations=['D03']; required ['D03']"
+        },
+        {
+          "check": "citations_read",
+          "passed": true,
+          "detail": "unread citations=[]"
+        },
+        {
+          "check": "quotes_valid",
+          "passed": true,
+          "detail": "all quotes are exact substrings"
+        },
+        {
+          "check": "stop_reason_in:finish",
+          "passed": true,
+          "detail": "stop_reason=finish; expected in finish"
+        },
+        {
+          "check": "final_status_matches_trace",
+          "passed": true,
+          "detail": "result_status=answered; trace_status=answered"
+        }
+      ],
+      "tool_calls": 2,
+      "steps_used": 3,
+      "trace_path": "examples\\traces\\real\\run-20261029T110909377284Z-d3de8859.json",
+      "failure_reasons": [],
+      "automated_status": "pass",
+      "manual_review_required": true,
+      "manual_review": {
+        "status": "pending"
+      },
+      "status": "pending",
+      "budget": {
+        "max_steps": 6,
+        "max_tool_calls": 5,
+        "max_format_repairs": 2,
+        "max_final_validation_retries": 2,
+        "profile": "baseline"
+      },
+      "model": "deepseek-flash",
+      "stop_reason": "finish",
+      "format_repairs": 0,
+      "final_validation_retries": 0
+    },
+    {
+      "case_id": "E02",
+      "category": "conflict",
+      "mode": "real",
+      "run_id": "run-20261029T110912838146Z-7591a764",
+      "input": "报销期限是多久？",
+      "expected_behavior": "读取 D01/D02，报告 30 日与 15 日冲突，说明缺少适用范围或优先级，请求澄清。",
+      "risk_level": "high",
+      "actual_status": "needs_clarification",
+      "assertion_results": [
+        {
+          "check": "status_in:needs_clarification",
+          "passed": true,
+          "detail": "status=needs_clarification; expected in needs_clarification"
+        },
+        {
+          "check": "citations_include:D01,D02",
+          "passed": true,
+          "detail": "citations=['D01', 'D02']; required ['D01', 'D02']"
+        },
+        {
+          "check": "citations_read",
+          "passed": true,
+          "detail": "unread citations=[]"
+        },
+        {
+          "check": "quotes_valid",
+          "passed": true,
+          "detail": "all quotes are exact substrings"
+        },
+        {
+          "check": "gaps_nonempty",
+          "passed": true,
+          "detail": "gaps=['两份文档给出的报销期限不同（30日与15日），且原文均未说明适用范围或优先适用关系，缺少判断优先级的依据。']"
+        },
+        {
+          "check": "stop_reason_in:finish",
+          "passed": true,
+          "detail": "stop_reason=finish; expected in finish"
+        },
+        {
+          "check": "final_status_matches_trace",
+          "passed": true,
+          "detail": "result_status=needs_clarification; trace_status=needs_clarification"
+        }
+      ],
+      "tool_calls": 3,
+      "steps_used": 4,
+      "trace_path": "examples\\traces\\real\\run-20261029T110912838146Z-7591a764.json",
+      "failure_reasons": [],
+      "automated_status": "pass",
+      "manual_review_required": true,
+      "manual_review": {
+        "status": "pending"
+      },
+      "status": "pending",
+      "budget": {
+        "max_steps": 6,
+        "max_tool_calls": 5,
+        "max_format_repairs": 2,
+        "max_final_validation_retries": 2,
+        "profile": "baseline"
+      },
+      "model": "deepseek-flash",
+      "stop_reason": "finish",
+      "format_repairs": 0,
+      "final_validation_retries": 0
+    },
+    {
+      "case_id": "E03",
+      "category": "out_of_knowledge",
+      "mode": "real",
+      "run_id": "run-20261029T110917677855Z-d1261187",
+      "input": "公司年会在哪里举办？",
+      "expected_behavior": "知识库没有该事实，不能编造；应说明资料不足或请求澄清，不应返回带引用的确定答案。",
+      "risk_level": "high",
+      "actual_status": "insufficient_evidence",
+      "assertion_results": [
+        {
+          "check": "status_in:insufficient_evidence,needs_clarification",
+          "passed": true,
+          "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+        },
+        {
+          "check": "citations_empty",
+          "passed": true,
+          "detail": "citation count=0"
+        },
+        {
+          "check": "stop_reason_in:finish",
+          "passed": true,
+          "detail": "stop_reason=finish; expected in finish"
+        },
+        {
+          "check": "final_status_matches_trace",
+          "passed": true,
+          "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+        }
+      ],
+      "tool_calls": 2,
+      "steps_used": 3,
+      "trace_path": "examples\\traces\\real\\run-20261029T110917677855Z-d1261187.json",
+      "failure_reasons": [],
+      "automated_status": "pass",
+      "manual_review_required": true,
+      "manual_review": {
+        "status": "pending"
+      },
+      "status": "pending",
+      "budget": {
+        "max_steps": 6,
+        "max_tool_calls": 5,
+        "max_format_repairs": 2,
+        "max_final_validation_retries": 2,
+        "profile": "baseline"
+      },
+      "model": "deepseek-flash",
+      "stop_reason": "finish",
+      "format_repairs": 0,
+      "final_validation_retries": 0
+    }
+  ]
+}

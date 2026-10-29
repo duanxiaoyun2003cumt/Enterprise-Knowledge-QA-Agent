@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095903849932Z-1948ad43",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 3,
+  "max_tool_calls": 5,
+  "steps_used": 3,
+  "tool_calls_made": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T095903849932Z-1948ad43",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Expecting value（line 1, column 1）"
+      ],
+      "next_action": "invalid_action",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T095903849932Z-1948ad43",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Expecting value（line 1, column 1）"
+      ],
+      "next_action": "invalid_action",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T095903849932Z-1948ad43",
+      "step": 3,
+      "model": "fake-evaluation",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Expecting value（line 1, column 1）"
+      ],
+      "next_action": "max_steps",
+      "decision_note": null
+    }
+  ],
+  "final_result": {
+    "status": "incomplete",
+    "answer": "已达到最大执行步数，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "需要进一步检索或核实资料"
+    ]
+  },
+  "stop_reason": "max_steps"
+}

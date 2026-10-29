@@ -1,0 +1,255 @@
+{
+  "metadata": {
+    "started_at": "2026-10-29T10:29:54.939152+00:00",
+    "batch_label": "phase6-e12b-candidate",
+    "profile": "candidate",
+    "real_only": true,
+    "repeats_default": 3,
+    "repeat_plan": {},
+    "budget": {
+      "max_steps": 8,
+      "max_tool_calls": 7,
+      "max_format_repairs": 2,
+      "max_final_validation_retries": 2
+    },
+    "prompt_sha256": "0cc3d5dbf9e0498adce07d8bb45964b1860e9f5565c85b1d618b2a1686bc450f",
+    "cases_file": "examples\\evaluation_cases.json",
+    "notes": "FakeLLM and real-model runs must be interpreted separately; manual semantic review is not completed for every sample.",
+    "completed_at": "2026-10-29T10:36:53.193559+00:00",
+    "models": [
+      "deepseek-flash"
+    ]
+  },
+  "summary": {
+    "total_runs": 3,
+    "evaluated": 3,
+    "passed": 3,
+    "failed": 0,
+    "blocked": 0,
+    "pass_rate_basis": "automated_assertions",
+    "pass_rate": 1.0,
+    "business_pass_rate": null,
+    "manual_review_pending": 3,
+    "manual_semantic_review_pending": 3,
+    "total_steps": 15,
+    "total_tool_calls": 10,
+    "format_repairs_total": 1,
+    "runs_with_format_repairs": 1,
+    "format_repairs_recovered_and_passed": 1,
+    "final_validation_retries_total": 1,
+    "runs_with_final_validation_retries": 1,
+    "final_validation_retries_recovered_and_passed": 1,
+    "budget_exhaustions": 0,
+    "complete": true
+  },
+  "per_case": [
+    {
+      "case_id": "E12B",
+      "category": "document_replacement",
+      "mode": "real",
+      "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+      "statistics": {
+        "runs": 3,
+        "evaluated": 3,
+        "passed": 3,
+        "failed": 0,
+        "blocked": 0,
+        "pass_rate_basis": "automated_assertions",
+        "pass_rate": 1.0,
+        "business_pass_rate": null,
+        "sample_variance": 0.0,
+        "failure_types": {},
+        "stop_reasons": {
+          "finish": 3
+        },
+        "budget_exhaustions": 0,
+        "citation_authenticity_failures": 0,
+        "manual_review_pending": 3,
+        "manual_semantic_review_pending": 3,
+        "avg_steps": 5.0,
+        "avg_tool_calls": 3.3333333333333335,
+        "avg_format_repairs": 0.3333333333333333,
+        "avg_final_validation_retries": 0.3333333333333333
+      },
+      "runs": [
+        {
+          "case_id": "E12B",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102954974491Z-0475a530",
+          "input": "报销期限是多久？",
+          "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_exclude:D01,D02",
+              "passed": true,
+              "detail": "citations=[]; forbidden ['D01', 'D02']"
+            },
+            {
+              "check": "result_never_answered",
+              "passed": true,
+              "detail": "final_status=insufficient_evidence"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102954974491Z-0475a530.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 8,
+            "max_tool_calls": 7,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "candidate"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 1
+        },
+        {
+          "case_id": "E12B",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T102959934311Z-1a8bc293",
+          "input": "报销期限是多久？",
+          "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_exclude:D01,D02",
+              "passed": true,
+              "detail": "citations=[]; forbidden ['D01', 'D02']"
+            },
+            {
+              "check": "result_never_answered",
+              "passed": true,
+              "detail": "final_status=insufficient_evidence"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 3,
+          "steps_used": 4,
+          "trace_path": "examples\\traces\\real\\run-20261029T102959934311Z-1a8bc293.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 8,
+            "max_tool_calls": 7,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "candidate"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 0,
+          "final_validation_retries": 0,
+          "repeat_index": 2
+        },
+        {
+          "case_id": "E12B",
+          "category": "document_replacement",
+          "mode": "real",
+          "run_id": "run-20261029T103005664864Z-814a93ee",
+          "input": "报销期限是多久？",
+          "expected_behavior": "移除 D01/D02 后，不能引用已移除文档或输出旧期限；应说明资料不足或请求澄清。",
+          "risk_level": "high",
+          "actual_status": "insufficient_evidence",
+          "assertion_results": [
+            {
+              "check": "status_in:insufficient_evidence,needs_clarification",
+              "passed": true,
+              "detail": "status=insufficient_evidence; expected in insufficient_evidence,needs_clarification"
+            },
+            {
+              "check": "citations_exclude:D01,D02",
+              "passed": true,
+              "detail": "citations=['D03']; forbidden ['D01', 'D02']"
+            },
+            {
+              "check": "result_never_answered",
+              "passed": true,
+              "detail": "final_status=insufficient_evidence"
+            },
+            {
+              "check": "stop_reason_in:finish",
+              "passed": true,
+              "detail": "stop_reason=finish; expected in finish"
+            },
+            {
+              "check": "final_status_matches_trace",
+              "passed": true,
+              "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+            }
+          ],
+          "tool_calls": 4,
+          "steps_used": 7,
+          "trace_path": "examples\\traces\\real\\run-20261029T103005664864Z-814a93ee.json",
+          "failure_reasons": [],
+          "automated_status": "pass",
+          "manual_review_required": true,
+          "manual_review": {
+            "status": "pending"
+          },
+          "status": "pending",
+          "budget": {
+            "max_steps": 8,
+            "max_tool_calls": 7,
+            "max_format_repairs": 2,
+            "max_final_validation_retries": 2,
+            "profile": "candidate"
+          },
+          "model": "deepseek-flash",
+          "stop_reason": "finish",
+          "format_repairs": 1,
+          "final_validation_retries": 1,
+          "repeat_index": 3
+        }
+      ]
+    }
+  ]
+}

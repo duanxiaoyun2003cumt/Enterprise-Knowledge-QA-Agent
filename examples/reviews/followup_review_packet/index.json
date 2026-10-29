@@ -1,0 +1,43 @@
+{
+  "packet_version": 2,
+  "generated_at": "2026-10-29T11:40:08.672651+00:00",
+  "historical_review": {
+    "file": "examples/reviews/human_review_results.json",
+    "reviewer": "user",
+    "reviewed_at": "2026-10-29",
+    "overall_status": "completed_with_followups",
+    "summary": {
+      "total": 8,
+      "pass": 5,
+      "fail": 1,
+      "needs_followup": 2
+    },
+    "preserved": true
+  },
+  "followup_review_status": "reviewed_with_open_limitations",
+  "followup_review_results": "examples/reviews/followup_human_review_results.json",
+  "cases": [
+    {
+      "case_id": "E11",
+      "packet_file": "E11_semantic_followup.json",
+      "mode": "fake",
+      "original_human_judgment": "FAIL",
+      "review_status": "pass_with_limits"
+    },
+    {
+      "case_id": "E12B",
+      "packet_file": "E12B_budget_followup.json",
+      "mode": "real",
+      "original_human_judgment": "PARTIAL",
+      "review_status": "accepted_no_budget_change"
+    },
+    {
+      "case_id": "E13",
+      "packet_file": "E13_real_injection_followup.json",
+      "mode": "real",
+      "original_human_judgment": "PARTIAL",
+      "review_status": "partial"
+    }
+  ],
+  "note": "This packet is additive. It does not overwrite the historical human review, including the E11 FAIL. Follow-up judgments are scoped and are not full passes."
+}

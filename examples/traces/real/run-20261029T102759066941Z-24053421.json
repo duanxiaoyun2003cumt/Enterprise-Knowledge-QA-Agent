@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T102759066941Z-24053421",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "公司年会在哪里举办？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 3,
+  "tool_calls_made": 2,
+  "format_repairs": 0,
+  "final_validation_retries": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T102759066941Z-24053421",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "公司年会 举办地点",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "search_documents",
+      "decision_note": "检索公司年会地点相关制度或通知"
+    },
+    {
+      "run_id": "run-20261029T102759066941Z-24053421",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "年会 场地 通知",
+        "top_k": 5
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：无候选文档",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "首次检索无候选，改用近义表达再次检索"
+    },
+    {
+      "run_id": "run-20261029T102759066941Z-24053421",
+      "step": 3,
+      "model": "deepseek-flash",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "未能在知识库中找到关于公司年会举办地点的信息。",
+        "citations": [],
+        "gaps": [
+          "知识库中没有年会地点相关文档；已用“公司年会 举办地点”和“年会 场地 通知”两次检索均无候选"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "两次检索均返回空列表，无证据可引用，按规则结束为证据不足"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "未能在知识库中找到关于公司年会举办地点的信息。",
+    "citations": [],
+    "gaps": [
+      "知识库中没有年会地点相关文档；已用“公司年会 举办地点”和“年会 场地 通知”两次检索均无候选"
+    ]
+  },
+  "stop_reason": "finish"
+}

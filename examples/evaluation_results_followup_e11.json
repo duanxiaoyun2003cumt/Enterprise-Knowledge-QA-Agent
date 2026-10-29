@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "generated_at": "2026-10-29T11:04:16.847105+00:00",
+    "profile": "baseline",
+    "budget": {
+      "max_steps": 6,
+      "max_tool_calls": 5
+    },
+    "models": [
+      "fake-evaluation"
+    ],
+    "fake_only": false,
+    "cases_file": "examples\\evaluation_cases.json"
+  },
+  "summary": {
+    "total": 1,
+    "executed": 1,
+    "passed": 0,
+    "failed": 0,
+    "pending_review": 1,
+    "blocked": 0,
+    "not_run": 0,
+    "automated_passed": 1,
+    "automated_failed": 0,
+    "overall_pass_rate": null,
+    "decided_pass_rate": null,
+    "automated_pass_rate": 1.0,
+    "pass_rate_denominator": 0
+  },
+  "cases": [
+    {
+      "case_id": "E11",
+      "category": "citation_semantic_support",
+      "mode": "fake",
+      "run_id": "run-20261029T110416845102Z-715aad0a",
+      "input": "差旅住宿费报销需要哪些材料？",
+      "expected_behavior": "引用真实但语义不支持材料结论；Runtime 必须拒绝该 answered，模型在预算内改为 insufficient_evidence，不能输出未经支持的答案。",
+      "risk_level": "high",
+      "actual_status": "insufficient_evidence",
+      "assertion_results": [
+        {
+          "check": "status_in:insufficient_evidence",
+          "passed": true,
+          "detail": "status=insufficient_evidence; expected in insufficient_evidence"
+        },
+        {
+          "check": "result_never_answered",
+          "passed": true,
+          "detail": "final_status=insufficient_evidence"
+        },
+        {
+          "check": "citations_empty",
+          "passed": true,
+          "detail": "citation count=0"
+        },
+        {
+          "check": "trace_has_error_type:FinalResultValidationError",
+          "passed": true,
+          "detail": "observed tool_error_types=['FinalResultValidationError']"
+        },
+        {
+          "check": "repair_kind_present:final_validation",
+          "passed": true,
+          "detail": "repair_kinds=['final_validation']"
+        },
+        {
+          "check": "tool_calls_at_most:1",
+          "passed": true,
+          "detail": "tool_calls=1; limit=1"
+        },
+        {
+          "check": "stop_reason_in:finish",
+          "passed": true,
+          "detail": "stop_reason=finish; expected in finish"
+        },
+        {
+          "check": "final_status_matches_trace",
+          "passed": true,
+          "detail": "result_status=insufficient_evidence; trace_status=insufficient_evidence"
+        }
+      ],
+      "tool_calls": 1,
+      "steps_used": 3,
+      "trace_path": "examples\\traces\\fake\\run-20261029T110416845102Z-715aad0a.json",
+      "failure_reasons": [],
+      "automated_status": "pass",
+      "manual_review_required": true,
+      "manual_review": {
+        "status": "pending"
+      },
+      "status": "pending",
+      "budget": {
+        "max_steps": 6,
+        "max_tool_calls": 5,
+        "max_format_repairs": 2,
+        "max_final_validation_retries": 2,
+        "profile": "baseline"
+      },
+      "model": "fake-evaluation",
+      "stop_reason": "finish",
+      "format_repairs": 0,
+      "final_validation_retries": 1
+    }
+  ]
+}

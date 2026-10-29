@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095726752331Z-4c9ad704",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "综合研究多个主题后给出报销期限结论",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 5,
+  "tool_calls_made": 5,
+  "steps": [
+    {
+      "run_id": "run-20261029T095726752331Z-4c9ad704",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "差旅住宿费报销需要哪些材料",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "检索材料"
+    },
+    {
+      "run_id": "run-20261029T095726752331Z-4c9ad704",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "读取材料文档"
+    },
+    {
+      "run_id": "run-20261029T095726752331Z-4c9ad704",
+      "step": 3,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "检索期限"
+    },
+    {
+      "run_id": "run-20261029T095726752331Z-4c9ad704",
+      "step": 4,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D01"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D01（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "读取 D01"
+    },
+    {
+      "run_id": "run-20261029T095726752331Z-4c9ad704",
+      "step": 5,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D02"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D02（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "tool_limit",
+      "decision_note": "读取 D02"
+    }
+  ],
+  "final_result": {
+    "status": "incomplete",
+    "answer": "已达到最大工具调用次数，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "需要进一步检索或核实资料",
+      "工具调用预算已用尽"
+    ]
+  },
+  "stop_reason": "tool_limit"
+}

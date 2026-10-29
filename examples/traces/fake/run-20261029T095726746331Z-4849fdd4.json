@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095726746331Z-4849fdd4",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "报销期限是多久？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 2,
+  "steps_used": 2,
+  "tool_calls_made": 2,
+  "steps": [
+    {
+      "run_id": "run-20261029T095726746331Z-4849fdd4",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "第一次检索"
+    },
+    {
+      "run_id": "run-20261029T095726746331Z-4849fdd4",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "tool_limit",
+      "decision_note": "重复检索"
+    }
+  ],
+  "final_result": {
+    "status": "incomplete",
+    "answer": "已达到最大工具调用次数，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "需要进一步检索或核实资料",
+      "工具调用预算已用尽"
+    ]
+  },
+  "stop_reason": "tool_limit"
+}

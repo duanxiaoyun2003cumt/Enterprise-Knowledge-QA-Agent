@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T111346710104Z-32614d93",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "差旅住宿费报销需要哪些材料？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 3,
+  "tool_calls_made": 1,
+  "format_repairs": 0,
+  "final_validation_retries": 1,
+  "steps": [
+    {
+      "run_id": "run-20261029T111346710104Z-32614d93",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D01"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D01（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "读取 D01"
+    },
+    {
+      "run_id": "run-20261029T111346710104Z-32614d93",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "answered",
+        "answer": "差旅住宿报销需要提供有效发票。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "费用发生后30日内提交报销申请。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": []
+      },
+      "action_validation": "invalid_final_result",
+      "tool_name": null,
+      "tool_result_summary": "最终结果未通过安全校验",
+      "tool_error_type": "FinalResultValidationError",
+      "observation_ok": false,
+      "validation_errors": [
+        "引用 D01 的原文与答案关键事实不相关（语义支持失败）。",
+        "答案关键事实“差旅住宿报销需要提供有效发票”没有获得任何已读引用的语义支持（语义支持失败）。"
+      ],
+      "repair_kind": "final_validation",
+      "next_action": "finish",
+      "decision_note": "引用真实字符串，但其语义不支持材料结论"
+    },
+    {
+      "run_id": "run-20261029T111346710104Z-32614d93",
+      "step": 3,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "insufficient_evidence",
+        "answer": "该引用只能支持报销期限，不能支持住宿材料结论。",
+        "citations": [],
+        "gaps": [
+          "引用语义不支持材料结论"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "repair_kind": null,
+      "next_action": "finish",
+      "decision_note": "接受校验反馈，改为资料不足"
+    }
+  ],
+  "final_result": {
+    "status": "insufficient_evidence",
+    "answer": "该引用只能支持报销期限，不能支持住宿材料结论。",
+    "citations": [],
+    "gaps": [
+      "引用语义不支持材料结论"
+    ]
+  },
+  "stop_reason": "finish"
+}

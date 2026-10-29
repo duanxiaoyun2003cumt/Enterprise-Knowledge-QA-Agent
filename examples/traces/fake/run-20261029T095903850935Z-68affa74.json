@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T095903850935Z-68affa74",
+  "mode": "fake",
+  "model": "fake-evaluation",
+  "question": "综合研究多个主题后给出报销期限结论",
+  "history_messages_included": 0,
+  "max_steps": 8,
+  "max_tool_calls": 7,
+  "steps_used": 7,
+  "tool_calls_made": 6,
+  "steps": [
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 1,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "差旅住宿费报销需要哪些材料",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D03）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "检索材料"
+    },
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 2,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D03"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D03（25 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "读取材料文档"
+    },
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 3,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "报销期限",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：2 个候选（D01, D02）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "检索期限"
+    },
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 4,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D01"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D01（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "read_document",
+      "decision_note": "读取 D01"
+    },
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 5,
+      "model": "fake-evaluation",
+      "action_name": "read_document",
+      "action_params": {
+        "doc_id": "D02"
+      },
+      "action_validation": "valid",
+      "tool_name": "read_document",
+      "tool_result_summary": "读取成功：D02（16 字符）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "search_documents",
+      "decision_note": "读取 D02"
+    },
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 6,
+      "model": "fake-evaluation",
+      "action_name": "search_documents",
+      "action_params": {
+        "query": "产品X",
+        "top_k": 3
+      },
+      "action_validation": "valid",
+      "tool_name": "search_documents",
+      "tool_result_summary": "检索成功：1 个候选（D04）",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "额外检索产品主题"
+    },
+    {
+      "run_id": "run-20261029T095903850935Z-68affa74",
+      "step": 7,
+      "model": "fake-evaluation",
+      "action_name": "finish",
+      "action_params": {
+        "status": "needs_clarification",
+        "answer": "报销期限存在 30 日与 15 日冲突，且没有适用范围或优先级，请确认。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "quote": "费用发生后30日内提交报销申请。",
+            "version": null,
+            "effective_date": null
+          },
+          {
+            "doc_id": "D02",
+            "quote": "费用发生后15日内提交报销申请。",
+            "version": null,
+            "effective_date": null
+          }
+        ],
+        "gaps": [
+          "缺少适用范围或制度优先级"
+        ]
+      },
+      "action_validation": "valid",
+      "tool_name": null,
+      "tool_result_summary": "最终结果通过校验",
+      "tool_error_type": null,
+      "observation_ok": true,
+      "validation_errors": [],
+      "next_action": "finish",
+      "decision_note": "冲突澄清"
+    }
+  ],
+  "final_result": {
+    "status": "needs_clarification",
+    "answer": "报销期限存在 30 日与 15 日冲突，且没有适用范围或优先级，请确认。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "quote": "费用发生后30日内提交报销申请。",
+        "version": null,
+        "effective_date": null
+      },
+      {
+        "doc_id": "D02",
+        "quote": "费用发生后15日内提交报销申请。",
+        "version": null,
+        "effective_date": null
+      }
+    ],
+    "gaps": [
+      "缺少适用范围或制度优先级"
+    ]
+  },
+  "stop_reason": "finish"
+}

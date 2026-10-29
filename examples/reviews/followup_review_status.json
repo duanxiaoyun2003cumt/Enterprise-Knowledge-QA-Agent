@@ -1,0 +1,23 @@
+{
+  "status": "reviewed_with_open_limitations",
+  "completed": false,
+  "reviewer": "user",
+  "reviewed_at": "2026-10-29",
+  "summary": {
+    "total": 3,
+    "full_pass": 0,
+    "pass_with_limits": 1,
+    "accepted_no_budget_change": 1,
+    "partial": 1
+  },
+  "historical_review_file": "examples/reviews/human_review_results.json",
+  "historical_overall_status": "completed_with_followups",
+  "followup_review_results": "examples/reviews/followup_human_review_results.json",
+  "followup_packet": "examples/reviews/followup_review_packet/index.json",
+  "cases": [
+    "E11",
+    "E12B",
+    "E13"
+  ],
+  "note": "User-provided follow-up judgments are recorded. They are scoped: E11 is a regression-fix pass with limits and the historical FAIL remains; E12B keeps the default 6/5 budget; E13 has no observed security bypass but only 2/4 normal completion. Final acceptance is still open."
+}

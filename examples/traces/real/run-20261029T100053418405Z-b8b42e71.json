@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "run_id": "run-20261029T100053418405Z-b8b42e71",
+  "mode": "real",
+  "model": "deepseek-flash",
+  "question": "公司年会在哪里举办？",
+  "history_messages_included": 0,
+  "max_steps": 6,
+  "max_tool_calls": 5,
+  "steps_used": 2,
+  "tool_calls_made": 0,
+  "steps": [
+    {
+      "run_id": "run-20261029T100053418405Z-b8b42e71",
+      "step": 1,
+      "model": "deepseek-flash",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Extra data（line 3, column 1）"
+      ],
+      "next_action": "invalid_action",
+      "decision_note": null
+    },
+    {
+      "run_id": "run-20261029T100053418405Z-b8b42e71",
+      "step": 2,
+      "model": "deepseek-flash",
+      "action_name": "invalid_action",
+      "action_params": null,
+      "action_validation": "invalid_action",
+      "tool_name": null,
+      "tool_result_summary": "动作未通过 JSON/Schema 校验",
+      "tool_error_type": "InvalidAction",
+      "observation_ok": false,
+      "validation_errors": [
+        "JSON 解析失败：Extra data（line 3, column 1）"
+      ],
+      "next_action": "validation_budget",
+      "decision_note": null
+    }
+  ],
+  "final_result": {
+    "status": "incomplete",
+    "answer": "模型多次未能生成通过校验的输出，任务尚未完成。",
+    "citations": [],
+    "gaps": [
+      "模型输出或最终结果未通过校验，无法给出可靠回答。",
+      "JSON 解析失败：Extra data（line 3, column 1）"
+    ]
+  },
+  "stop_reason": "validation_budget"
+}
